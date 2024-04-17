@@ -5,7 +5,9 @@
 pacman::p_load(tidyverse, knitr, here)
 
 # Import the communicable diseases data
-data_cmnn <- read_csv(here("data", "burden-of-disease-cmnn.csv"))
+data_cmnn <- read_csv(here("data/burden-of-disease-cmnn.csv"))
+
+data_cmnn
 ```
 
 ## Table of Estimates for CMNN Burden Over Time
@@ -14,6 +16,11 @@ data_cmnn <- read_csv(here("data", "burden-of-disease-cmnn.csv"))
 # Here render a table for the DALY burden over time for the three countries 
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
+countries <- data_cmnn %>% 
+  filter(Entity %in% c("Namibia", "Burundi","Malawi")) %>% 
+  pivot_wider(
+
+kable()
 ```
 
 ## Plot Showing Trends in CMNN Burden Over Time
