@@ -1,6 +1,6 @@
 # Communicable, Maternal, Neonatal, and Nutritional Disease Burden (CMNN)
 
-```{r}
+```{r include = FALSE}
 # Load necessary packages
 pacman::p_load(tidyverse, knitr, here)
 
@@ -12,25 +12,49 @@ data_cmnn
 
 ## Table of Estimates for CMNN Burden Over Time
 
-```{r}
+```{r include = FALSE}
 # Here render a table for the DALY burden over time for the three countries 
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
 countries <- data_cmnn %>% 
-  filter(Entity %in% c("Namibia", "Burundi","Malawi")) %>% 
-  pivot_wider(
+  filter(Entity %in% c("Namibia", "Burundi","Malawi"))%>% 
+  pivot_wider(values_from = "DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)",
+              names_from = Entity,
+              id_cols = Year)
 
-kable()
+
+
+
+
+kable(countries)
 ```
 
 ## Plot Showing Trends in CMNN Burden Over Time
 
+```{r include = FALSE}
+data_cmnn_clean <- data_cmnn %>%filter(Entity %in% c("Namibia", "Burundi","Malawi")) %>% 
+ rename("DALYs"=4) 
+```
+
 ```{r}
-# Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
+
+DALYs_plot <- 
+  ggplot(data_cmnn_clean,
+       aes(x = Year, y = DALYs, group = Entity, color = Entity)) +
+  geom_line() +
+  labs(x = "Year", 
+       y = "DALYs", title = "Trend of DALYs over time",
+       subtitle = "The graph shows the trend  of DALYs related to Communicable diseases",
+       caption = "R Master: The Graph Network")
+
+
+ 
+DALYs_plot
+
 ```
 
 ## Summary of CMNN Burden Findings
 
-Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+The findings shows a notable difference in the trends DALY related to Communicable Diseases between the Burundi, Malawi and Namibia. All three countries experienced a high burden of communicable diseases between the year 1990 and 2005. Notably, whilst Burundi and Malawi's burden started to decline around 1995, Namibia's burden was on the steady rise and only reached a peak around the year 2004. This could be attributed to delayed health response and interventions for HIV/AIDS and TB that was prevalent in the country during that time. 
 
 
