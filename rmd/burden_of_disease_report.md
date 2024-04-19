@@ -23,7 +23,7 @@ The source data is from the Institute for Health Metrics and Evaluation
 
 ## Summary of CMNN Burden Findings
 
-The findings shows a notable difference in the trends DALY related to
+The findings shows a notable difference in the trends of DALY related to
 Communicable Diseases between the Burundi, Malawi and Namibia. All three
 countries experienced a high burden of communicable diseases between the
 year 1990 and 2005. Notably, whilst Burundi and Malawi’s burden started
