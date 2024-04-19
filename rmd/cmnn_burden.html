@@ -357,6 +357,212 @@ display: none;
 (CMNN)</h1>
 <div id="table-of-estimates-for-cmnn-burden-over-time" class="section level2">
 <h2>Table of Estimates for CMNN Burden Over Time</h2>
+<pre class="r"><code># Here render a table for the DALY burden over time for the three countries 
+# You should pivot the data to show each country in a separate column.
+# Use kable() from the knitr package to render the table.
+countries &lt;- data_cmnn %&gt;% 
+  filter(Entity %in% c(&quot;Namibia&quot;, &quot;Burundi&quot;,&quot;Malawi&quot;))%&gt;% 
+  pivot_wider(values_from = &quot;DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)&quot;,
+              names_from = Entity,
+              id_cols = Year)
+
+
+
+
+
+kable(countries)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Year</th>
+<th align="right">Burundi</th>
+<th align="right">Malawi</th>
+<th align="right">Namibia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1990</td>
+<td align="right">65640.90</td>
+<td align="right">67720.68</td>
+<td align="right">26305.47</td>
+</tr>
+<tr class="even">
+<td align="right">1991</td>
+<td align="right">68816.35</td>
+<td align="right">69611.68</td>
+<td align="right">26164.02</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">72189.65</td>
+<td align="right">72425.84</td>
+<td align="right">26441.47</td>
+</tr>
+<tr class="even">
+<td align="right">1993</td>
+<td align="right">70772.54</td>
+<td align="right">77205.15</td>
+<td align="right">27436.67</td>
+</tr>
+<tr class="odd">
+<td align="right">1994</td>
+<td align="right">72030.21</td>
+<td align="right">81870.48</td>
+<td align="right">29740.00</td>
+</tr>
+<tr class="even">
+<td align="right">1995</td>
+<td align="right">75558.27</td>
+<td align="right">83523.82</td>
+<td align="right">31426.32</td>
+</tr>
+<tr class="odd">
+<td align="right">1996</td>
+<td align="right">76551.38</td>
+<td align="right">84066.40</td>
+<td align="right">34483.90</td>
+</tr>
+<tr class="even">
+<td align="right">1997</td>
+<td align="right">75254.18</td>
+<td align="right">84671.35</td>
+<td align="right">37856.29</td>
+</tr>
+<tr class="odd">
+<td align="right">1998</td>
+<td align="right">73870.13</td>
+<td align="right">85203.76</td>
+<td align="right">41491.39</td>
+</tr>
+<tr class="even">
+<td align="right">1999</td>
+<td align="right">72362.63</td>
+<td align="right">84775.65</td>
+<td align="right">45024.21</td>
+</tr>
+<tr class="odd">
+<td align="right">2000</td>
+<td align="right">70593.39</td>
+<td align="right">83179.92</td>
+<td align="right">48476.84</td>
+</tr>
+<tr class="even">
+<td align="right">2001</td>
+<td align="right">67308.84</td>
+<td align="right">81972.65</td>
+<td align="right">51986.36</td>
+</tr>
+<tr class="odd">
+<td align="right">2002</td>
+<td align="right">63622.54</td>
+<td align="right">80059.14</td>
+<td align="right">54184.87</td>
+</tr>
+<tr class="even">
+<td align="right">2003</td>
+<td align="right">59610.33</td>
+<td align="right">77454.71</td>
+<td align="right">55907.88</td>
+</tr>
+<tr class="odd">
+<td align="right">2004</td>
+<td align="right">55665.75</td>
+<td align="right">75049.23</td>
+<td align="right">55356.52</td>
+</tr>
+<tr class="even">
+<td align="right">2005</td>
+<td align="right">51940.06</td>
+<td align="right">71586.95</td>
+<td align="right">51734.77</td>
+</tr>
+<tr class="odd">
+<td align="right">2006</td>
+<td align="right">48451.54</td>
+<td align="right">66929.50</td>
+<td align="right">46627.68</td>
+</tr>
+<tr class="even">
+<td align="right">2007</td>
+<td align="right">45118.70</td>
+<td align="right">61515.38</td>
+<td align="right">40333.24</td>
+</tr>
+<tr class="odd">
+<td align="right">2008</td>
+<td align="right">42114.27</td>
+<td align="right">55699.27</td>
+<td align="right">35551.44</td>
+</tr>
+<tr class="even">
+<td align="right">2009</td>
+<td align="right">39828.47</td>
+<td align="right">50335.60</td>
+<td align="right">33331.93</td>
+</tr>
+<tr class="odd">
+<td align="right">2010</td>
+<td align="right">37862.83</td>
+<td align="right">45957.25</td>
+<td align="right">31485.84</td>
+</tr>
+<tr class="even">
+<td align="right">2011</td>
+<td align="right">35758.52</td>
+<td align="right">41755.34</td>
+<td align="right">29258.49</td>
+</tr>
+<tr class="odd">
+<td align="right">2012</td>
+<td align="right">33651.80</td>
+<td align="right">37589.36</td>
+<td align="right">27086.48</td>
+</tr>
+<tr class="even">
+<td align="right">2013</td>
+<td align="right">32097.45</td>
+<td align="right">34434.73</td>
+<td align="right">25979.42</td>
+</tr>
+<tr class="odd">
+<td align="right">2014</td>
+<td align="right">30964.19</td>
+<td align="right">32365.33</td>
+<td align="right">25982.25</td>
+</tr>
+<tr class="even">
+<td align="right">2015</td>
+<td align="right">29984.47</td>
+<td align="right">30933.41</td>
+<td align="right">25594.08</td>
+</tr>
+<tr class="odd">
+<td align="right">2016</td>
+<td align="right">28831.34</td>
+<td align="right">29834.47</td>
+<td align="right">24953.76</td>
+</tr>
+<tr class="even">
+<td align="right">2017</td>
+<td align="right">27506.37</td>
+<td align="right">28119.98</td>
+<td align="right">24110.15</td>
+</tr>
+<tr class="odd">
+<td align="right">2018</td>
+<td align="right">26180.49</td>
+<td align="right">26372.76</td>
+<td align="right">22517.86</td>
+</tr>
+<tr class="even">
+<td align="right">2019</td>
+<td align="right">25348.62</td>
+<td align="right">25068.66</td>
+<td align="right">21531.13</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="plot-showing-trends-in-cmnn-burden-over-time" class="section level2">
 <h2>Plot Showing Trends in CMNN Burden Over Time</h2>

@@ -12,7 +12,7 @@ data_cmnn
 
 ## Table of Estimates for CMNN Burden Over Time
 
-```{r include = FALSE}
+```{r}
 # Here render a table for the DALY burden over time for the three countries 
 # You should pivot the data to show each country in a separate column.
 # Use kable() from the knitr package to render the table.
